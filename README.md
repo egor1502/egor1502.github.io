@@ -1,1 +1,1 @@
-# egor1502.github.io
+Snap.SVG example by Yegor Omelchenko
