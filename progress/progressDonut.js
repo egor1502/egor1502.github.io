@@ -1,7 +1,29 @@
 'use strict';
 
+/**
+ * ProgressDonut plagin by Yegor Omelchenko
+ * 
+ * Get plugin wrapper on element by `cons progressWrapper progressDonut(selector)`
+ * Initialize plugin by `progressWrapper.init([options])`
+ * 
+ * Progress Donut wrapper methods:
+ * 
+ * init([options])
+ * destroy()
+ * setValue(value)
+ * updateState([state])
+ * getState()
+ * setOptions(options)
+ * 
+ */
+
 (function progressDonutPlugin () {
 
+    /**
+     * 
+     * @param {Object} options Options for the progress donut
+     * @returns {Object} ProgressDonut instance
+     */
     function init (options = {}) {
         if (this.node.dataset.state) {
             console.error('The progress donut already initialized.');
@@ -32,6 +54,9 @@
         return this;
     }
 
+    /**
+     * Destroy the Progress Donut element
+     */
     function destroy () {
         if (!this.node.dataset.state) {
             throw new Error('The element have no initialized progress donut.');
@@ -44,6 +69,14 @@
         return true;
     }
 
+    /**
+     * 
+     * @param {Object} options Options for the progress donut:
+     *                         progressDonutClasses - add custom class to progress donut root
+     *                         progressDonutTrackClasses - add custom class to progress donut track
+     *                         progressDonutFillClasses - add custom class to progress donut fill
+     *                         animationLoopDuration - configure speed of the progress donut animation
+     */
     function setOptions (options) {
         if (!this.node.dataset.state) {
             throw new Error('The element have no initialized progress donut.');
@@ -69,9 +102,15 @@
         return this;
     }
 
+    /**
+     * 
+     * @param {Object} state - Use { visibility: 'normal' or 'hidden', animated: boolean} to configure the progress donut state
+     */
     function updateState (state = this.node.dataset.state) {
         if (!this.node.dataset.state && !this.initialization) {
             throw new Error('The element have no initialized progress donut.');
+        } else if (!this.initialization) {
+            state = Object.assign(this.node.dataset.state, state);
         }
 
         if (state.visibility === 'hidden') {
@@ -91,6 +130,9 @@
         return this;
     }
 
+    /**
+     * Get the progress donut state
+     */
     function getState () {
         if (!this.node.dataset.state) {
             throw new Error('The element have no initialized progress donut.');
@@ -99,6 +141,10 @@
         return JSON.parse(this.node.dataset.state);
     }
 
+    /**
+     * 
+     * @param {Number|String} value - Set the value of the progress donut
+     */
     function setValue (value) {
         if (!this.node.dataset.state) {
             throw new Error('The element have no initialized progress donut.');

@@ -23,12 +23,8 @@
         progress.setValue(event.target.value);
     });
 
-    animateInput.addEventListener('change', _ => 
-        progress.updateState(Object.assign(progress.getState(), { animated: animateInput.checked }))
-    );
+    animateInput.addEventListener('change', _ => progress.updateState({ animated: animateInput.checked }));
 
-    hideInput.addEventListener('change', _ => 
-        progress.updateState(Object.assign(progress.getState(), { visibility: hideInput.checked ? 'hidden' : 'normal' }))
-    );
+    hideInput.addEventListener('change', _ => progress.updateState({ visibility: hideInput.checked ? 'hidden' : 'normal' }));
 
 })();
