@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress component usage example</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./progressDonut.css">
+</head>
+<body>
+    <div class="sample-block">
+        <h1 class="sample-block__header">Progress</h1>
+        <div class="sample-block__content">
+            <div class="sample-block__progress"></div>
+
+            <div class="progress-controls sample-block__controls">
+                <div class="progress-controls__row">
+                    <div class="progress-controls__text-input text-input">
+                        <input class="text-input__input" id="sample-block__progress-value" type="number" min="0" max="100" value="70"/>
+                        <label class="text-input__label" for="sample-block__progress-value">Value</label>
+                    </div>
+                </div>
+
+                <div class="progress-controls__row">
+                    <div class="progress-controls__switch switch">                                
+                        <input class="switch__checkbox" id="sample-block__progress-animate" type="checkbox" />
+                        <label class="switch__label" for="sample-block__progress-animate">Animate</label>                        
+                    </div>
+                </div>
+
+                <div class="progress-controls__row">
+                    <div class="progress-controls__switch switch">                                
+                        <input class="switch__checkbox" id="sample-block__progress-hide" type="checkbox" />
+                        <label class="switch__label" for="sample-block__progress-hide">Hide</label>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./progressDonut.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>

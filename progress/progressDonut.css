@@ -1,0 +1,41 @@
+.progress-donut {
+    transform: rotate(-90deg);
+}
+
+.progress-donut_animated {
+    animation-name: progressDonutAnimation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.progress-donut_hidden {
+    display: none;
+}
+
+.progress-donut__track {
+   fill: none;
+   stroke: #EFEFEC;
+   stroke-width: 15;
+}
+
+.progress-donut__fill {
+    fill: none;
+    stroke: #FFDB4D;
+    stroke-width: 15;
+
+    stroke-dasharray: 628;
+    stroke-dashoffset: 628;
+
+    transition: stroke-dashoffset 1s;
+}
+
+@keyframes progressDonutAnimation {
+    from {
+        transform: rotate(-90deg);
+    }
+
+    to {
+        transform: rotate(270deg);
+    }
+}
