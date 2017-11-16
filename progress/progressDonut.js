@@ -110,7 +110,7 @@
         if (!this.node.dataset.state && !this.initialization) {
             throw new Error('The element have no initialized progress donut.');
         } else if (!this.initialization) {
-            state = Object.assign(this.node.dataset.state, state);
+            state = Object.assign(JSON.parse(this.node.dataset.state), state);
         }
 
         if (state.visibility === 'hidden') {
